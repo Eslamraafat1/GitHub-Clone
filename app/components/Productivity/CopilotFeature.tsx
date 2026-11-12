@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HoverCard from "./HoverCard";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const CopilotFeature = () => {
   const [hovered, setHovered] = useState<boolean>(false);
@@ -9,7 +9,7 @@ const CopilotFeature = () => {
   const [showGo, setShowGo] = useState<boolean>(false);
   const [count, setCount] = useState<number>(0);
 
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -20,9 +20,9 @@ const CopilotFeature = () => {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { type: "keyframe" } },
+    show: { opacity: 1, transition: { type: "tween" } },
   };
 
   return (
@@ -110,7 +110,7 @@ const CopilotFeature = () => {
                             <pre className=""><span className="code-editor-line-mktg"><span className="pl-k">import</span> <span className="pl-s1">matplotlib</span>.<span className="pl-s1">pyplot</span> <span className="pl-k">as</span> <span className="pl-s1">plt</span></span></pre>
                             <pre className=""><span className="code-editor-line-mktg"></span></pre>
                             <pre className=""><motion.span variants={container} initial='hidden' whileInView='show' className="code-editor-line-mktg"><motion.span variants={item} className="pl-k js-type-letters">def</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-en js-type-letters">draw_scatterplot</motion.span><motion.span variants={item} className="js-type-letters">(</motion.span><motion.span variants={item} className="pl-s1 js-type-letters">x_values</motion.span><motion.span variants={item} className="js-type-letters">, </motion.span><motion.span variants={item} className="pl-s1 js-type-letters">y_values</motion.span><motion.span variants={item} className="js-type-letters">):</motion.span></motion.span></pre>
-                            <motion.div initial={{opacity:0, y:40}} whileInView={{opacity:1, y:0}} transition={{delay:1, type:'just'}}>
+                            <motion.div initial={{opacity:0, y:40}} whileInView={{opacity:1, y:0}} transition={{delay:1, type:'tween'}}>
                             <pre className=" bg-[#388bfd1a]"><span>    <span className="pl-s1">plt</span>.<span className="pl-en">scatter</span>(<span className="pl-s1">x_values</span>, <span className="pl-s1">y_values</span>, <span className="pl-s1">s</span><span className="pl-c1">=</span><span className="pl-c1">20</span>)</span></pre>
                             <pre className=" bg-[#388bfd1a]"><span>    <span className="pl-s1">plt</span>.<span className="pl-en">title</span>(<span className="pl-s">&ldquo;Scatter Plot&ldquo;</span>)</span></pre>
                             <pre className=" bg-[#388bfd1a]"><span>    <span className="pl-s1">plt</span>.<span className="pl-en">xlabel</span>(<span className="pl-s">&ldquo;x values&ldquo;</span>)</span></pre>
@@ -145,7 +145,7 @@ const CopilotFeature = () => {
                         <div key={count} className='flex-1 overflow-x-auto text-white rounded-b-md'>
                         <pre className=""><span className="code-editor-line-mktg d-inline-block"><span className="pl-k">const</span> <span className="pl-s1">seconds</span> <span className="pl-c1">=</span> <span className="pl-c1">3600</span></span></pre>
                         <pre className=""><motion.span variants={container} initial='hidden' whileInView='show' className="code-editor-line-mktg d-inline-block"><motion.span variants={item} className="pl-k js-type-letters">const</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-s1 js-type-letters">minutes</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-c1 js-type-letters">=</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-s1 js-type-letters">seconds</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-c1 js-type-letters">/</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-c1 js-type-letters">60</motion.span></motion.span></pre>
-                        <motion.div initial={{opacity:0, y:40}} whileInView={{opacity:1, y:0}} transition={{delay:1, type:'just'}}>
+                        <motion.div initial={{opacity:0, y:40}} whileInView={{opacity:1, y:0}} transition={{delay:1, type:'tween'}}>
                         <pre className=" bg-[#388bfd1a]"><span><span className="pl-k">const</span> <span className="pl-s1">hours</span> <span className="pl-c1">=</span> <span className="pl-s1">minutes</span> <span className="pl-c1">/</span> <span className="pl-c1">60</span></span></pre>
                         <pre className=" bg-[#388bfd1a]"><span><span className="pl-k">const</span> <span className="pl-s1">days</span> <span className="pl-c1">=</span> <span className="pl-s1">hours</span> <span className="pl-c1">/</span> <span className="pl-c1">24</span></span></pre>
                         <pre className=" bg-[#388bfd1a]"><span><span className="pl-k">const</span> <span className="pl-s1">weeks</span> <span className="pl-c1">=</span> <span className="pl-s1">days</span> <span className="pl-c1">/</span> <span className="pl-c1">7</span></span></pre>
@@ -181,7 +181,7 @@ const CopilotFeature = () => {
                         <div key={count} className='flex-1 overflow-x-auto text-white rounded-b-md'>
                         <pre className=""><span className="code-editor-line-mktg d-inline-block"><span className="pl-k">package</span> main</span></pre>
                         <pre className=""><motion.span variants={container} initial='hidden' whileInView='show' className="code-editor-line-mktg d-inline-block"><motion.span variants={item} className="js-type-letters">  </motion.span><motion.span variants={item} className="pl-k js-type-letters">func</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-en js-type-letters">Memoize</motion.span><motion.span variants={item} className="js-type-letters">(</motion.span><motion.span variants={item} className="pl-s1 js-type-letters">fn</motion.span><motion.span variants={item} className="js-type-letters"> </motion.span><motion.span variants={item} className="pl-k js-type-letters">func</motion.span><motion.span variants={item} className="js-type-letters">{'('}</motion.span><motion.span variants={item} className="pl-smi js-type-letters">int</motion.span><motion.span variants={item} className="js-type-letters">) </motion.span><motion.span variants={item} className="pl-smi js-type-letters">int</motion.span><motion.span variants={item} className="js-type-letters">) </motion.span><motion.span variants={item} className="pl-k js-type-letters">func</motion.span><motion.span variants={item} className="js-type-letters">{'('}</motion.span><motion.span variants={item} className="pl-smi js-type-letters">int</motion.span><motion.span variants={item} className="js-type-letters">{')'} </motion.span><motion.span variants={item} className="pl-smi js-type-letters">int</motion.span><motion.span variants={item} className="js-type-letters"> {'{'} </motion.span></motion.span></pre>
-                        <motion.div initial={{opacity:0, y:40}} whileInView={{opacity:1, y:0}} transition={{delay:1.5, type:'just'}}>
+                        <motion.div initial={{opacity:0, y:40}} whileInView={{opacity:1, y:0}} transition={{delay:1.5, type:'tween'}}>
                         <pre className=" bg-[#388bfd1a]"><span>      <span className="pl-s1">cache</span> <span className="pl-c1">:=</span> <span className="pl-en">make</span>(<span className="pl-k">map</span>[<span className="pl-smi">int</span>]<span className="pl-smi">int</span>)</span></pre>
                         <pre className=" bg-[#388bfd1a]"><span>      <span className="pl-k">return</span> <span className="pl-k">func</span>(<span className="pl-s1">n</span> <span className="pl-smi">int</span>) <span className="pl-smi">int</span> {'{'}</span></pre>
                         <pre className=" bg-[#388bfd1a]"><span>          <span className="pl-k">if</span> <span className="pl-s1">v</span>, <span className="pl-s1">ok</span> <span className="pl-c1">:=</span> <span className="pl-s1">cache</span>[<span className="pl-s1">n</span>]; <span className="pl-s1">ok</span>  {'{'}</span></pre>
